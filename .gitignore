@@ -1,2 +1,6 @@
 recycle_bin
 .htaccess
+auth.ini
+error_log
+log.txt
+test.html

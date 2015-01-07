@@ -1,0 +1,20 @@
+<html ng-app="shouldyoufollow">
+<head>
+<title>Should you follow?</title>
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+
+<blockquote class="twitter-tweet" ng-repeat="tweet in data">
+<a href="https://twitter.com/{{screen_name}}/status/{{tweet.id_str}}"></a>
+</blockquote>
+
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+></script>
+<script 
+  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"
+></script>
+<script src="app.js"></script>
+</body>
+</html>
