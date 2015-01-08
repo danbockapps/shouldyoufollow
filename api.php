@@ -10,14 +10,15 @@ $post = json_decode($contents, true);
 
 
 $ch = curl_init();
-$url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" . http_build_query(
-  array(
-    "screen_name" => $_GET["screen_name"],
-    "count" => 20,
-    "trim_user" => 1,
-    "exclude_replies" => 1,
-    "include_rts" => "false"
-  )
+$url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
+    http_build_query(
+      array(
+        "screen_name" => $_GET["screen_name"],
+        "count" => 20,
+        "trim_user" => 1,
+        "exclude_replies" => 1,
+        "include_rts" => "false"
+      )
 );
 
 curl_setopt($ch, CURLOPT_URL, $url);
