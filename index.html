@@ -34,15 +34,20 @@
       </fieldset>
     </form>
     
+    <!-- TODO put these side by side and other aesthetic improvements -->
+    <button class="btn btn-primary center-block" ng-click="nextTweet(1)">
+      Thumbs up
+    </button>
+    <button class="btn btn-primary center-block" ng-click="nextTweet(0)">
+      Thumbs down
+    </button>
+
     <div ng-repeat="tweet in tweets" ng-show="tweet.key == iterator">
       <blockquote class="twitter-tweet">
         <a href="https://twitter.com/{{screenName}}/status/{{tweet.id_str}}"></a>
       </blockquote>
     </div>
 
-    <button class="btn btn-primary center-block" ng-click="nextTweet()">
-      Next tweet
-    </button>
   </div>
   <div class="col-md-3">
   </div>

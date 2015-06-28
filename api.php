@@ -14,7 +14,7 @@ $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
     http_build_query(
       array(
         "screen_name" => $_GET["screen_name"],
-        "count" => 20,
+        "count" => 100,
         "trim_user" => 1,
         "exclude_replies" => 1,
         "include_rts" => "false"
