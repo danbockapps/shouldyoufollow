@@ -15,11 +15,16 @@
 <body ng-controller="MainCtrl as ctrl">
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
   </div>
-  <div class="col-md-6">
-    <h1 class="text-center">
+  
+  <!-- TODO the tweets are too big when browser is maximized -->
+  <div class="col-md-4">
+    <h1 class="text-center" ng-hide="thumbsInProgress">
       Should You Follow?
+    </h1>
+    <h1 class="text-center" ng-show="thumbsInProgress">
+      Do you like this tweet? ({{iterator+1}}/{{denominator}})
     </h1>
     <div ng-hide="thumbsInProgress">
       <h2 class="text-center">
@@ -43,16 +48,15 @@
       </form>
     </div>
     
-    <div ng-show="thumbsInProgress">
-      <!-- TODO put these side by side and other aesthetic improvements -->
-      <button class="btn btn-primary center-block" ng-click="thumbsInProgress=0">
-        Start Over
+    <div ng-show="thumbsInProgress" class="row">
+      <button class="col-md-4 btn btn-primary center-block" ng-click="thumbsInProgress=0">
+        <span class="glyphicon glyphicon-hand-left"></span> Start Over
       </button>
-      <button class="btn btn-primary center-block" ng-click="nextTweet(1)">
-        Thumbs up
+      <button class="col-md-4 btn btn-primary center-block" ng-click="nextTweet(1)">
+        <span class="glyphicon glyphicon-thumbs-up"></span> Thumbs up
       </button>
-      <button class="btn btn-primary center-block" ng-click="nextTweet(0)">
-        Thumbs down
+      <button class="col-md-4 btn btn-primary center-block" ng-click="nextTweet(0)">
+        <span class="glyphicon glyphicon-thumbs-down"></span> Thumbs down
       </button>
   
       <div ng-repeat="tweet in tweets" ng-show="tweet.key == iterator">
@@ -63,7 +67,7 @@
     </div>
 
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
   </div>
 </div>
 
