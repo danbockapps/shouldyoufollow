@@ -19,37 +19,47 @@
   </div>
   <div class="col-md-6">
     <h1 class="text-center">
-      Enter someone's Twitter handle:
+      Should You Follow?
     </h1>
+    <div ng-hide="thumbsInProgress">
+      <h2 class="text-center">
+        Enter someone's Twitter handle:
+      </h2>
+      
+      <form ng-submit="submitSnForm()">
+        <fieldset ng-disabled="disableSnForm">
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="screenName" />
+          </div>
+          
+          <div class="text-center">
+            <input type="checkbox" ng-model="includeRts" /> Inclue RTs
+          </div>
+          
+          <button type="submit" class="btn btn-primary center-block">
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </div>
     
-    <form ng-submit="submitSnForm()">
-      <fieldset ng-disabled="disableSnForm">
-        <div class="form-group">
-          <input type="text" class="form-control" ng-model="screenName" />
-        </div>
-        
-        <div class="text-center">
-          <input type="checkbox" ng-model="includeRts" /> Inclue RTs
-        </div>
-        
-        <button type="submit" class="btn btn-primary center-block">
-          Submit
-        </button>
-      </fieldset>
-    </form>
-    
-    <!-- TODO put these side by side and other aesthetic improvements -->
-    <button class="btn btn-primary center-block" ng-click="nextTweet(1)">
-      Thumbs up
-    </button>
-    <button class="btn btn-primary center-block" ng-click="nextTweet(0)">
-      Thumbs down
-    </button>
-
-    <div ng-repeat="tweet in tweets" ng-show="tweet.key == iterator">
-      <blockquote class="twitter-tweet">
-        <a href="https://twitter.com/{{screenName}}/status/{{tweet.id_str}}"></a>
-      </blockquote>
+    <div ng-show="thumbsInProgress">
+      <!-- TODO put these side by side and other aesthetic improvements -->
+      <button class="btn btn-primary center-block" ng-click="thumbsInProgress=0">
+        Start Over
+      </button>
+      <button class="btn btn-primary center-block" ng-click="nextTweet(1)">
+        Thumbs up
+      </button>
+      <button class="btn btn-primary center-block" ng-click="nextTweet(0)">
+        Thumbs down
+      </button>
+  
+      <div ng-repeat="tweet in tweets" ng-show="tweet.key == iterator">
+        <blockquote class="twitter-tweet">
+          <a href="https://twitter.com/{{screenName}}/status/{{tweet.id_str}}"></a>
+        </blockquote>
+      </div>
     </div>
 
   </div>

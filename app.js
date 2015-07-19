@@ -4,6 +4,7 @@ function MainCtrl($scope, $http) {
   var denominator;
   
   $scope.submitSnForm = function() {
+    $scope.thumbsInProgress = true;
     $http.get("api.php", {params: {
       screen_name: $scope.screenName,
       include_rts: $scope.includeRts
