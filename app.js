@@ -1,6 +1,8 @@
 var app = angular.module('shouldyoufollow', []);
 
 function MainCtrl($scope, $http) {
+  var denominator;
+  
   $scope.submitSnForm = function() {
     $http.get("api.php", {params: {
       screen_name: $scope.screenName,
@@ -16,6 +18,7 @@ function MainCtrl($scope, $http) {
       }
 
       console.log($scope.tweets.length);
+      denominator = Math.min($scope.tweets.length - 1, 10);
 
       $.getScript("//platform.twitter.com/widgets.js");
     });  
@@ -25,13 +28,13 @@ function MainCtrl($scope, $http) {
   $scope.nextTweet = function(value) {
     $scope.thumbs += value;
     console.log("You have accumulated " + $scope.thumbs + " thumbs");
-    if($scope.iterator < $scope.tweets.length - 1) {
-      $scope.iterator++;
-      console.log("iterator is now " + $scope.iterator);
+ 
+    if($scope.iterator + 1 >= denominator) {
+      // You have reached the end of the tweets.
+      alert("Score: " + $scope.thumbs + " out of " + denominator);
     }
     else {
-      // You have reached the end of the tweets.
-      alert("Score: " + $scope.thumbs + " out of " + $scope.tweets.length);
+      $scope.iterator++;
     }
   }
 }
