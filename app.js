@@ -2,7 +2,10 @@ var app = angular.module('shouldyoufollow', []);
 
 function MainCtrl($scope, $http) {
   $scope.submitSnForm = function() {
-    $http.get("api.php?screen_name=" + $scope.screenName).success(function(data) {
+    $http.get("api.php", {params: {
+      screen_name: $scope.screenName,
+      include_rts: $scope.includeRts
+    }}).success(function(data) {
       console.log(data);
       $scope.tweets = data;
       $scope.iterator = 0;

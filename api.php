@@ -5,9 +5,9 @@ $ini = parse_ini_file("auth.ini");
 $debug = false;
 
 $contents = file_get_contents("php://input");
-logtxt($contents);
 $post = json_decode($contents, true);
 
+logtxt(print_r($_GET, true));
 
 $ch = curl_init();
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
@@ -17,7 +17,7 @@ $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
         "count" => 100,
         "trim_user" => 1,
         "exclude_replies" => 1,
-        "include_rts" => "false"
+        "include_rts" => $_GET['include_rts'] ? 'true' : 'false'
       )
 );
 
