@@ -1,8 +1,10 @@
 var app = angular.module('shouldyoufollow', []);
 
-function MainCtrl($scope, $http) {  
+function MainCtrl($scope, $http) {
+  $scope.status = 'snForm';
+  
   $scope.submitSnForm = function() {
-    $scope.thumbsInProgress = true;
+    $scope.status = 'spinner';
     $http.get("api.php", {params: {
       screen_name: $scope.screenName,
       include_rts: $scope.includeRts
@@ -19,7 +21,11 @@ function MainCtrl($scope, $http) {
       console.log($scope.tweets.length);
       $scope.denominator = Math.min($scope.tweets.length - 1, 10);
 
-      $.getScript("//platform.twitter.com/widgets.js");
+      $.getScript("//platform.twitter.com/widgets.js", function(a, b, c){
+          $scope.status = 'thumbs';
+          $scope.$apply();
+          console.log("Twitter widgets script done.");
+      });
     });  
   };
 

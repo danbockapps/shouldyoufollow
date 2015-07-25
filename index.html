@@ -18,10 +18,9 @@
   <div class="col-sm-5">
   </div>
   
-  <!-- TODO the tweets are too big when browser is maximized -->
   <div class="col-sm-2">
   
-    <div ng-hide="thumbsInProgress">
+    <div ng-show="status=='snForm'">
       <h1 class="text-center">
         Should You Follow?
       </h1>
@@ -48,9 +47,13 @@
       </div>
     </div>
     
-    <div ng-show="thumbsInProgress">
+    <div ng-show="status=='thumbs'">
       <div class="row">
-        <button class="col-sm-6 btn btn-default center-block" ng-click="thumbsInProgress=0">
+        <button
+          class="col-sm-6 btn btn-default center-block"
+          ng-click="status='snForm'"
+          style="margin-top:1em"
+        >
           <span class="glyphicon glyphicon-hand-left"></span> Start Over
         </button>
       </div>
@@ -83,6 +86,11 @@
         </div>
       </div>
 
+    </div>
+    
+    <div ng-show="status=='spinner'">
+      <h1 class="text-center">Please wait...</h1>
+      <img src="spinner.gif" class="center-block" />
     </div>
 
   </div>

@@ -5,3 +5,4 @@ error_log
 log.txt
 test.html
 *~
+*.gif
