@@ -5,6 +5,13 @@ function MainCtrl($scope, $http) {
   
   $scope.submitSnForm = function() {
     $scope.status = 'spinner';
+    
+    // $scope.includeRts is undefined if the checkbox hasn't been touched.
+    // api.php needs it to be false instead.
+    if(!$scope.includeRts) {
+      $scope.includeRts = false;
+    }
+    
     $http.get("api.php", {params: {
       screen_name: $scope.screenName,
       include_rts: $scope.includeRts

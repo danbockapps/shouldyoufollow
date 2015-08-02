@@ -7,7 +7,11 @@ $debug = false;
 $contents = file_get_contents("php://input");
 $post = json_decode($contents, true);
 
-logtxt(print_r($_GET, true));
+logtxt(
+  $_SERVER['REMOTE_ADDR'] . " " . 
+  $_GET['screen_name'] . " " . 
+  $_GET['include_rts']
+);
 
 $ch = curl_init();
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
@@ -17,7 +21,7 @@ $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?" .
         "count" => 100,
         "trim_user" => 1,
         "exclude_replies" => 1,
-        "include_rts" => $_GET['include_rts'] ? 'true' : 'false'
+        "include_rts" => $_GET['include_rts']
       )
 );
 
