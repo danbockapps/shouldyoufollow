@@ -43,7 +43,7 @@ function MainCtrl($scope, $http) {
  
     if($scope.iterator + 1 >= $scope.denominator) {
       // You have reached the end of the tweets.
-      alert("Score: " + $scope.thumbs + " out of " + $scope.denominator);
+      $scope.status = "result";
     }
     else {
       $scope.iterator++;

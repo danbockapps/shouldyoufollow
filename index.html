@@ -92,6 +92,26 @@
       <h1 class="text-center">Please wait...</h1>
       <img src="spinner.gif" class="center-block" />
     </div>
+    
+    <div ng-show="status=='result'">
+      <div class="row">
+        <button
+          class="col-sm-6 btn btn-default center-block"
+          ng-click="status='snForm'"
+          style="margin-top:1em"
+        >
+          <span class="glyphicon glyphicon-hand-left"></span> Start Over
+        </button>
+      </div>
+      <h1 class="text-center">
+        You liked <strong>{{thumbs}}</strong> out of
+        <strong>{{denominator}}</strong>.
+      </h1>
+      <h2 class="text-center">
+        <a href="https://twitter.com/{{screenName}}" target="_new">Follow or
+        unfollow @{{screenName}} on Twitter</a>.
+      </h2>
+    </div>
 
   </div>
   <div class="col-sm-5">
