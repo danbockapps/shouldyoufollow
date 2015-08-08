@@ -1,6 +1,6 @@
 var app = angular.module('shouldyoufollow', []);
 
-function MainCtrl($scope, $http) {
+function MainCtrl($scope, $http, $timeout) {
   $scope.status = 'snForm';
   
   $scope.submitSnForm = function() {
@@ -48,7 +48,15 @@ function MainCtrl($scope, $http) {
     else {
       $scope.iterator++;
     }
-  }
+  };
+  
+  $scope.startOver = function() {
+    $scope.status = 'snForm';
+
+    $timeout(function(){
+        $('#screenName').focus().select();
+    });
+  };
 }
 
 app.controller("MainCtrl", MainCtrl);

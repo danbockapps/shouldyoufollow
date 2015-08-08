@@ -32,7 +32,12 @@
         <form ng-submit="submitSnForm()">
           <fieldset ng-disabled="disableSnForm">
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="screenName" />
+              <input 
+                type="text" 
+                class="form-control" 
+                ng-model="screenName" 
+                id="screenName"
+              />
             </div>
             
             <div class="text-center">
@@ -51,7 +56,7 @@
       <div class="row">
         <button
           class="col-sm-6 btn btn-default center-block"
-          ng-click="status='snForm'"
+          ng-click="startOver()"
           style="margin-top:1em"
         >
           <span class="glyphicon glyphicon-hand-left"></span> Start Over
@@ -99,7 +104,7 @@
       <div class="row">
         <button
           class="col-sm-6 btn btn-default center-block"
-          ng-click="status='snForm'"
+          ng-click="startOver()"
           style="margin-top:1em"
         >
           <span class="glyphicon glyphicon-hand-left"></span> Start Over
