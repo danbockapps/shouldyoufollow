@@ -26,7 +26,7 @@ function MainCtrl($scope, $http) {
       }
 
       console.log($scope.tweets.length);
-      $scope.denominator = Math.min($scope.tweets.length - 1, 10);
+      $scope.denominator = Math.min($scope.tweets.length, 10);
 
       $.getScript("//platform.twitter.com/widgets.js", function(a, b, c){
           $scope.status = 'thumbs';
