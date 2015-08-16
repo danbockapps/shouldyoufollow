@@ -17,6 +17,12 @@ function MainCtrl($scope, $http, $timeout) {
       include_rts: $scope.includeRts
     }}).success(function(data) {
       console.log(data);
+      
+      if(data.errors) {
+        $scope.status = 'error';
+        return;
+      }
+      
       $scope.tweets = shuffleArray(data);
       $scope.iterator = 0;
       $scope.thumbs = 0;
