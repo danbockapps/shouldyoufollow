@@ -134,6 +134,21 @@
         An error occurred. Please check the screen name and try again.
       </h1>
     </div>
+    
+    <div ng-show="status=='noTweets'">
+      <div class="row">
+        <button
+          class="col-sm-6 btn btn-default center-block"
+          ng-click="startOver()"
+          style="margin-top:1em"
+        >
+          <span class="glyphicon glyphicon-hand-left"></span> Start Over
+        </button>
+      </div>
+      <h1 class="text-center">
+        {{screenName}} has no tweets. Try checking someone else.
+      </h1>
+    </div>
 
   </div>
   <div class="col-lg-5 col-md-4 col-sm-3">

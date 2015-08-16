@@ -23,6 +23,11 @@ function MainCtrl($scope, $http, $timeout) {
         return;
       }
       
+      if(data.length === 0) {
+        $scope.status = 'noTweets';
+        return;
+      }
+      
       $scope.tweets = shuffleArray(data);
       $scope.iterator = 0;
       $scope.thumbs = 0;
