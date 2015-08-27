@@ -6,3 +6,4 @@ log.txt
 test.html
 *~
 *.gif
+.htaccess.dev
