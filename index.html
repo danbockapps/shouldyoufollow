@@ -38,12 +38,15 @@
         <form ng-submit="submitSnForm()">
           <fieldset ng-disabled="disableSnForm">
             <div class="form-group">
-              <input 
-                type="text" 
-                class="form-control" 
-                ng-model="screenName" 
-                id="screenName"
-              />
+              <div class="input-group">
+                <div class="input-group-addon">@</div>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="screenName" 
+                  id="screenName"
+                />
+              </div>
             </div>
             
             <div class="text-center">

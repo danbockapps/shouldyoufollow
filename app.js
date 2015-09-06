@@ -2,9 +2,10 @@ var app = angular.module('shouldyoufollow', []);
 
 function MainCtrl($scope, $http, $timeout) {
   $scope.status = 'snForm';
-  
+
   $scope.submitSnForm = function() {
     $scope.status = 'spinner';
+    $scope.screenName = $scope.screenName.replace(/@/g, '');
     
     // $scope.includeRts is undefined if the checkbox hasn't been touched.
     // api.php needs it to be false instead.
